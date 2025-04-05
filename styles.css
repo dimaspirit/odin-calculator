@@ -8,3 +8,54 @@
   margin: 0;
   padding: 0;
 }
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  width: 492px;
+  margin:  20px auto;
+}
+
+.screen {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: right;
+  background-color: rgba(0,0,0,.9);
+  color: #fff;
+  padding: 8px;
+  margin: 8px 0;
+  border-radius: 4px;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.button-wrap {
+  display: flex;
+  flex-basis: 120px;
+  
+  text-align: center;
+}
+
+.button-wrap button {
+  display: block;
+  width: 100%;
+  height: 40px;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 4px;
+  background-color: rgba(0,0,0,.1);
+  transition: all .4s ease;
+}
+
+.button-wrap:last-child {
+  flex-grow: 2;
+}
+
+.button-wrap button:hover {
+  background-color: rgba(0,0,0,.2);
+}
