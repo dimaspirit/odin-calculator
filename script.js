@@ -13,17 +13,27 @@ function isFilled(value) {
   return value || value === 0;
 }
 
+function reset() {
+  firstNumber = null;
+  secondNumber = null;
+  operator = null;
+}
+
+function isAllValuesFilled() {
+  return isFilled(firstNumber) && isFilled(secondNumber) && isFilled(operator);
+}
+
 function handleActionBtn(event) {
   event.preventDefault();
 
   switch(event.target.dataset.action) {
     case 'calculate': {
-      if(isFilled(firstNumber) && isFilled(secondNumber) && isFilled(operator)) {
+      if(isAllValuesFilled()) {
         screenNode.textContent = operate(firstNumber, operator, secondNumber);
       }
+      reset();
     }
   }
-  console.log(event.target.dataset.action);
 }
 
 actionBtns.forEach(actionBtn => {
@@ -32,6 +42,12 @@ actionBtns.forEach(actionBtn => {
 
 function handleOperatorBtn(event) {
   event.preventDefault();
+  if(isAllValuesFilled()) {
+    const result = operate(firstNumber, operator, secondNumber);
+    screenNode.textContent = result;
+    reset();
+    firstNumber = result;
+  }
   operator = event.target.dataset.operate;
 }
 
