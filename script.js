@@ -4,6 +4,36 @@ let firstNumber;
 let secondNumber;
 let operator;
 
+const screenNode = document.getElementById('screen');
+const actionBtns = document.querySelectorAll('button[data-action]');
+const numberBtns = document.querySelectorAll('button[data-number]');
+
+function handleActionBtn(event) {
+  event.preventDefault();
+  console.log(event.target.dataset.action);
+}
+
+actionBtns.forEach(actionBtn => {
+  actionBtn.addEventListener('click', handleActionBtn);
+});
+
+function handleNumberBtn(event) {
+  event.preventDefault();
+  const number = +event.target.dataset.number;
+  
+  if(firstNumber && firstNumber !== 0) {
+    secondNumber = number;
+  } else {
+    firstNumber = number;
+  }
+
+  screenNode.textContent = number;
+}
+
+numberBtns.forEach(numberBtn => {
+  numberBtn.addEventListener('click', handleNumberBtn);
+})
+
 function add(a, b) {
   return a + b;
 }
