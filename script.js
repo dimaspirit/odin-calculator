@@ -32,6 +32,11 @@ function handleActionBtn(event) {
         screenNode.textContent = operate(firstNumber, operator, secondNumber);
       }
       reset();
+      break;
+    }
+    case 'clear': {
+      reset();
+      screenNode.textContent = 0;
     }
   }
 }
