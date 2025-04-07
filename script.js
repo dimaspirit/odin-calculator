@@ -47,6 +47,7 @@ actionBtns.forEach(actionBtn => {
 
 function handleOperatorBtn(event) {
   event.preventDefault();
+
   if(isAllValuesFilled()) {
     const result = operate(firstNumber, operator, secondNumber);
     screenNode.textContent = result;
